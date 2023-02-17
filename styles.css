@@ -110,7 +110,6 @@ table, tbody, tr, td, th {
 
     header, main, footer {
         margin: 2em;
-        transform: scale(1);
         max-width: 500px;
         border: none;
         background-color: transparent;
@@ -143,12 +142,11 @@ table, tbody, tr, td, th {
         display: inline;
         z-index: 1;
         margin: 0;
-        padding: 3em;
+        padding: 1em;
         background: var(--color-box);
         border: 2px solid var(--color-border);
-        border-radius: 40px;
+        border-radius: 16px;
         cursor: pointer;
-        transform: scale(0.2);
     }
 }
 
@@ -161,7 +159,7 @@ table, tbody, tr, td, th {
 
 @media (hover: hover) and (min-width: 601px) {
     body > *:hover {
-        /* transform: scale(1.05); */
+        transform: scale(1.01);
         /* margin: 4em auto; */
         box-shadow: 5px 5px 5px 5px var(--color-shadow);
     }
