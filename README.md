@@ -1,101 +1,54 @@
 # Learning Outcomes
 
------------------
+* The student will begin to master the use of Cascading Style Sheets for designing the presentation layer of web sites and applications in a layered fashion.
+* The students will explore CSS syntax including Flexbox, CSS Grid, Media Queries, CSS variables, CSS animations, and variety of common CSS properties. The focus will be on standards based CSS, but there will be opportunity to explore proprietary features such as the need for vendor-prefixes.
+* Presentation technologies such as custom fonts and images will also be utilized to expose to students to the syntax, but emphasis will be placed on performance focused use of such technology which may include correct HTML usage (picture element and srcset), image format choice and optimization and font optimization strategies.
+* The student will explore responsive web design (RWD) and how to execute a look that should allow for mobile, tablet, and desktop forms. Upon conclusion the student should be able to discuss the challenges and benefits of this design pattern.
 
-* The student will begin to understand the process of applying user centered thinking to help formulate documentation to build out a website or application
-* The student will explore standards based semantic HTML and its use. More than 50 tag types will be employed
-* The student will scaffold up a small website with no set look to demonstrate the progressive enhancement design philosophy and create a foundation for future assignments
+## Part 1 - Standards Based CSS Use (25pts)
 
-This homework is divided into two parts: Part 1 will consist of a design exploration concluded with some submitted documentation in PDF form.  Part 2 will consist of a small site with little or hopefully no presentation applied.
+**Include the link to your website and the GitHub repo with the code on the first page of your document.**
 
-NOTE: Create a _new_ repo and _new_ Netlify website for this assignment, separate from HW1. If you push this assignment to your HW1 website, we will be unable to your HW1 assignment.
+To demonstrate CSS knowledge use the technology to style your HTML pages from the previous (HW2). You may need to add classes, id, and restructure your elements in order to do this task. That is fine. However, do not convert your site to a `<div>` dominant design or assume significant point loss.
 
-## Part 1 : Site Planning (50pts)
+To layout your page you may use CSS Flexbox and/or CSS Grid (10pts). You do not have to account for ancient browsers so assume Edge Chromium, Chrome, latest Safari and latest Firefox level access.
 
------------------
+To style your page use whichever CSS properties you like, but you must show demonstration of these intermediate or advanced ideas
 
-To experience the User Centered Design (UCD) process you should create a design document that contains the following points for the plan of your personal portfolio / recruitment site.  Read section 2 before doing this phase as you may see it informs your decisions here.  
+* CSS Variables - (2pts)
+* Custom Fonts (also with fallback for slow load or failure) - (3pts)
+* Relative units like em, vh, vw, %, etc. (1pts)
+* CSS Animations, Transitions and Transforms (9pts)
+* Media Queries (See Part 3 - Responsive Web Design)
+
+Any CSS written should be as standard as is possible. Consult [caniuse.com](http://caniuse.com) and assume that the teaching staff will use the CSS Validation service to check quality. (<https://jigsaw.w3.org/css-validator/>). We will reverify your HTML validity as well.
+
+**Note:** If you do not have clean validations (very likely) make sure you can answer what message it has or account for a lack of checking due to being a newer feature.  
   
-Your report should include the following:  
-  
-**A short summary** of purpose of the site. (4pts)
+## Part 2 - Image Usage (15pts)
 
-A section on audience considerations including at least one (1) **persona diagram.**  Not sure what a persona diagram is? Here is a [link](https://xd.adobe.com/ideas/process/user-research/putting-personas-to-work-in-ux-design/) that might help. Examples and an explanation of persona diagrams can also be found [here](https://www.justinmind.com/blog/user-persona-templates/), and [here's](https://figma.com/) a tool that you can use to create one.  You may also find [this](https://thispersondoesnotexist.com/) useful when trying to find an image of a person for your diagram. (6pts)
+To further enhance your page presentation you should use images. You may use images of any form (GIF, JPEG, WebP, SVG, etc.), but make sure that the types are appropriate for the content served. (3pts) Your images should be optimized for delivery (5pts). Accessibility issues with your images such as alternative text, proper use of contrast and proper use of foreground or background should be accounted for (6pts). Finally, you should address delivering the appropriate size and/or type of image given the needs of responsive design discussed in the next section. The use of the `<picture>` tag and the src set as well as corresponding aspects of media queries should provide you with an ability to do this properly so you are not sending inappropriately sized images byte count to small screen devices.
 
-**A site diagram** which shows individual pages, navigation titles and file names.  You may decide to annotate the diagram with more information about page purpose if you see fit.  Examples and an explanation of site diagrams can be found [here](https://online.visual-paradigm.com/diagrams/templates/site-map-diagram/simple-website-sitemap/), and [here's](https://app.diagrams.net/) a tool that you can use to create one. (10pts)
+## Part 3 - Responsive Design (10pts)
 
-**Wireframe(s)** that detail the various pages in your site.  Depending on your proposed design this could be a single wireframe or a number of them. Also, your wireframe(s) shouldn't be high-fidelity. Examples and an explanation of wireframes can be found [here](https://careerfoundry.com/en/blog/ux-design/what-is-a-wireframe-guide/), and [here's](https://figma.com/) a tool that you can use to create your wireframe(s). (10pts)
+To address device diversity your site should practice the principle of responsive web design. You should account for three types of form factors. Very small screen (phone), tablet or restrictive laptop, and desktop. Employ appropriate pixel breakpoints based upon those factors. There may be variation of those dimensions so do a little research.
 
-**Note:** The explanations and tools provided are meant as a jumping-off point, and you're encouraged to research more on the deliverables above and the tools for creating them. Furthermore, the examples presented are meant to help you understand each of the deliverables, so keep in mind that the deliverables can come in many forms besides the examples that we've provided.
+Make sure your CSS layouts reflow appropriately and do not require pinch and zoom. Also make sure per the previous section that images are sized appropriately per device dimension.
 
-The plan should conclude with the following two sections:
+Lastly, you may see that the different devices suggests interface changes (ex. Hamburger menu, touch awareness, etc.) You may need to adjust to address such things. If you are unable to do things you may get some points lost in the next section by discussing what the limits are of your design.
 
-1\. **Technical requirements** - some details (doesn't need to be super long) about what you plan on doing in execution, where it will be hosted, etc. Technical requirements might include things like technologies possible to use, target browser and device profiles, page delivery targets in bytes, etc. We're not looking for specific things or for you to know all of the answers, just to have a little bit of thought put in. Feel free to look around at other sites similar to yours to see how they achieved it.  (6pts)
+## Part 4 - Aesthetics and Usability (10pts)
 
-2\. **Content requirements** - details what type of content you will need to gather or write.  You may also discuss any media assets you need.  You will not need all this content on the initial build of phase 1.  However, by phase 2 (HW3) most content should be in-place so plan accordingly. (6pts)
+The look of the site and our ability as end users to understand what you are doing is paramount. No matter how well we do our sites functionally, if we have a poor experience we will ultimately fail. We award up to 5 points for the aesthetics and 5 points for the usability of the site. If you are simple and precise in look and obvious in navigation you will likely get most of the points, but there is subjectivity and visual appeal here that will be based upon the interpretation of the graders. While we have kept the amount of points very low understand in "real life" all points would be here really. For outlier grades on this part (very high and very low) we will have all teaching staff review for verification. High grades showing excellence may receive up to 5 more bonus points at our discretion and we may ask to share with the class.
 
-If appropriate you can include a Miscellaneous or Notes section in your design document if it makes sense to you.
-  
-The pieces of the design document such as wireframes, site map, technical requirements, etc. may be produced in a variety of tools for specialized diagramming.  However, your turn-in for Phase 1 should be **a single PDF** file with appropriate formatting for screen or print reading either landscape or portrait style.
+## Restrictions and Logistic Details
 
-The presentation and content quality of your design plan will matter.  Assume you are judged both by the presentation as well as what is written at equal weight.  You do not need to write an essay, create a document you think the TAs/tutors/Prof would actually want to read for maximum points.  We may reward extra points beyond what is available for excellent jobs The overall quality of presentation will account for minimally eight (8) points, but you may be given more.
+* All CSS must be hand authored - no frameworks like Twitter Bootstrap or Tailwind. If you really want experience doing such things you may make a copy of your site after doing your plain authored version. Redo do it with a framework and then write a 1 page summary of time spent on work and byte count / performance of the two versions for extra credit. This optional extra credit is worth a maximum of 5 points.  
 
-## Part 2 : HTML Only Execution (140pts)
+* You may not purchase a theme or represent an existing design as your own work. While you are free to use such things as inspiration direct usage will be considered an AIP violation.  
 
------------------
+* You may use stock photography images with or without watermarks. If you use stock imagery provide HTML comment situations or use a `<cite>` element to show us where you got the images. This is an important thing to get used to as misuse of images online can and does resort in legal demand letters. Be aware of what you are pulling in.  
 
-**Before you start this section:**  Our future homework assignments will cover styling this website with CSS and adding interactivity with JS, for this assignment we **_ONLY WANT HTML_** (unless specified below). The point of this assignment is not for your website to look good, but for it to be structured well, have thoughtful content, and use semantic markup.
+* You should still not be using JS in your assignment at this stage. You can continue to stub out files or plan for JS which will be included in the final two steps.
 
-In this section you will build out a valid semantic and structural HTML only site.  Valid means your pages should validate using the validator service at [https://validator.w3.org/](https://validator.w3.org/)
-
-Your site must contain all the following tags.  The items with a \* and italics have notes to read below.
-
-```html
-html, head, title, meta, link, _script_\*, _style_\*, body, main, h1, h2, h3, p, section, header, footer, aside, nav, div, span, br, b, i, strong, em, code, pre, hr, a, img, picture, iframe, audio, video, source, _canvas_\*, _svg_\* ul, ol, optgroup, li, form, label, fieldset, legend, input, textarea, datalist, select, option, details, summary, button, template, table, tr, td, th, caption, col, colgroup, figure, figcaption,   (63 tags \* 2 = 126pts)  
-```
-
-**Note: You may use other tags if you want as there are more elements.**
-
-`<style>` **Note:** YOU MAY NOT STYLE PAGES other than using a border or simple flow to provide a base page structure.  If you have more than 3 CSS properties (total, not unique) in your file you will be deducted points.  Your effort here is to NOT style your pages.
-
-`<script>` **Note:** You may add script as a placeholder, to show the use of a third party script for analytics, or for use with a tag that we have permitted the use of JS for (e.g. the Canvas tag).  No interactions are allowed at this stage otherwise you will be deducted points.
-
-`<canvas>` **Note:** To demonstrate the use of a `<canvas>` tag you may include some MINOR AMOUNT of JavaScript.  You are simply exploring the idea of the tag.  If you have more than 15 lines of script to do something assume you did too much.
-
-`<svg>` **Note:** To demonstrate you can use SVG within an HTML page demonstrate this element within inline tag usage.
-
-All the elements above particularly with restrictions may not fit in your portfolio site in a reasonable way.  To exercise these or other tags consider making a "Labs" or "Experiments" section to your site and adding as many pages as you see fit to meet the assignment requirements.  Later on in the process you are free to "prune" those pages from your project to focus on the main content.  The point of forcing the use of all these tags is to get you to see the breadth of elements available to you.
-
-If you build your site well many of the elements used will just flow.  For example, making a simple contact form would easily allow you to test most tags.  Making a data grid of certain technical skills you have might illustrate the various table tags, and so on.  Do not make your whole site mostly with `<div>`s and then use these tags solely in your experiments sections.  Doing such an approach will likely ruin the correct markup style usage portion of your grade.
-
-### Other grading points and details  
-
-Pages must validate, if they don't provide HTML comments why they don't (validation is worth 4pts)
-
-Pages must not suffer from "`<div>`-itis" and exhibit semantic HTML (style of markup usage is worth 10pts)
-
-You must use all the tags.  Each tag used is worth two points (1pt for occurrence and 1pt for appropriate contextual use or demo)
-
-Misuse of CSS or Script attempting to build the site early will result in a loss of 25% of your overall points.
-  
-Tip: If you are doing that during this phase there is no need to turn such linked styles in.  We are just forcing you to do progressive styles here, this should not be worked against.
-
-Make sure to host your site on Netlify hosting and provide a link to it in the Part 1 PDF.
-
-**UPDATE:** It turns out that Gradescope turns PDFs into images so links inside of PDFs are not clickable. To remedy this we are going to have you submit links to your hosted site here on Canvas, but the rest of the assignment will still be uploaded to Gradescope as a PDF as usual.
-
-**TURN IN (to Gradescope):**
-
-* A PDF containing
-  * Part 1:
-  * Your website purpose summary
-  * Persona Diagram(s)
-  * Your site diagram
-  * Your site wireframe
-  * Technical Requirements
-  * Content Requirements
-
-**TURN IN (on Canvas):**
-
-* Part 2:
-  * A link to your website
+**Important Note:** Please make the submission on Gradescope. Make sure you include the link to your deployed website in the submission PDF.
