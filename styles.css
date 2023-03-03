@@ -130,7 +130,7 @@ table, tbody, tr, td, th {
         margin: 0 auto;
     }
 
-    nav > details {
+    details {
         display: none;
     }
 
