@@ -33,25 +33,146 @@ Point distribution : 5pts per method (20pts total), 5pts for form and HTML usage
         <title>Method Test</title>
     </head>
     <body>
-        <form>
-            <label for="id">ID</label>
-            <input type="number" name="id" id="id">
+        <main>
+            <h1>Method Test</h1>
+            <form id="echo">
+                <label for="id">ID</label>
+                <br>
+                <input type="number" name="id" id="id" required>
+                <br>
+                <br>
+                <label for="article_name" required>Article Name</label>
+                <br>
+                <input type="text" name="article_name" id="article_name">
+                <br>
+                <br>
+                <label for="article_body" required>Article Body</label>
+                <br>
+                <textarea name="article_body" id="article_body" cols="30" rows="10" required></textarea>
+                <br>
+                <input type="hidden" name="date" id="date" readonly>
+                <br>
+                <label for="request">Request Type</label>
+                <br>
+                <input type="radio" name="request" id="xhr" value="XMLHttpRequest">
+                <label for="xhr">XMLHttpRequest</label>
+                <br>
+                <input type="radio" name="request" id="fetch" value="fetch" required>
+                <label for="fetch">fetch</label>
+            </form>
             <br>
-            <label for="article_name">Article Name</label>
-            <input type="text" name="article_name" id="article_name">
+            <button type="button" form="echo" id="postBtn" value="POST">Post</button>
+            <button type="button" form="echo" id="getBtn" value="GET">Get</button>
+            <button type="button" form="echo" id="putBtn" value="PUT">Put</button>
+            <button type="button" form="echo" id="deleteBtn" value="DELETE">Delete</button>
             <br>
-            <label for="article_body">Article Body</label>
-            <br>
-            <textarea name="article_body" id="article_body" cols="30" rows="10"></textarea>
-            <br>
-            <label for="date">Date</label>
-            <input type="text" name="date" id="date" readonly>
-            <br>
-            <button id="postBtn" value="POST">Post</button>
-            <button id="getBtn" value="GET">Get</button>
-            <button id="putBtn" value="PUT">Put</button>
-            <button id="deleteBtn" value="DELETE">Delete</button>
             <output id="response"></output>
-        </form>
+        </main>
     </body>
+    <script>
+        let method = '';
+        const url = 'https://httpbin.org/';
+        const form = document.querySelector('form');
+        const date = document.getElementById('date');
+        const response = document.getElementById('response');
+
+        // loops through each button to add event listener
+        for (const button of document.getElementsByTagName('button')) {
+            button.addEventListener('click', () => {
+
+                // clears output
+                response.innerHTML = '';
+
+                // sets method to button value, sets date, and scrapes form data
+                method = button.value.toLowerCase();
+                date.value = new Date().toLocaleString();
+                const formData = new FormData(form);
+
+                // field validation: if method is get or delete, only id and 
+                // request are required. if method is post or put, all fields
+                // are required.
+                if (method === 'get' || method === 'delete') {
+                    if (formData.get('id') === null || !document.getElementById('id').checkValidity()) {
+                        alert('ID is required.');
+                        console.log(formData.get('request'))
+                        return;
+                    } else if (formData.get('request') === null) {
+                        alert('Request type is required.');
+                        return;
+                    }
+                } else if (method === 'post' || method === 'put') {
+                    if (formData.get('id') === null || !document.getElementById('id').checkValidity()) {
+                        alert('ID is required.');
+                        return;
+                    } else if (formData.get('article_name') === null || !document.getElementById('article_name').checkValidity()) {
+                        alert('Article name is required.');
+                        return;
+                    } else if (formData.get('article_body') === null || !document.getElementById('article_body').checkValidity()) {
+                        alert('Article body is required.');
+                        return;
+                    } else if (formData.get('request') === null) {
+                        alert('Request type is required.');
+                        return;
+                    }
+                }
+
+                // query string formation
+                const params = (method === 'get' || method === 'delete') ? 
+                    '?' + new URLSearchParams(formData) : '';
+                
+
+                // if request is XMLHttpRequest, create new XMLHttpRequest
+                if (formData.get('request') === 'XMLHttpRequest') {
+                    const xhr = new XMLHttpRequest();
+
+                    xhr.onload = () => {
+                        if (xhr.status === 200) {
+                            response.innerHTML = `<pre>${
+                                JSON.stringify(JSON.parse(xhr.responseText), null, 4)
+                            }</pre>`;
+                        }
+                    };
+
+                    xhr.open(method, url + method + params, true);
+                    
+                    if (method === 'get' || method === 'delete')
+                        xhr.send();
+                    else
+                        xhr.send(formData);
+
+                } else if (formData.get('request') === 'fetch') {
+                    if (method === 'get') {
+                        fetch(url + method + params)
+                        .then(response => response.json())
+                        .then(data => {
+                            response.innerHTML = `<pre>${
+                                JSON.stringify(data, null, 4)
+                            }</pre>`;
+                        });
+                    } else if (method === 'delete') {
+                        fetch(url + method + params, {
+                            method: method
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            response.innerHTML = `<pre>${
+                                JSON.stringify(data, null, 4)
+                            }</pre>`;
+                        });
+                    } else {
+                        fetch(url + method, {
+                            method: method,
+                            body: formData
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            response.innerHTML = `<pre>${
+                                JSON.stringify(data, null, 4)
+                            }</pre>`;
+                        });
+                    }
+                }
+            });
+        }
+    </script>
 </html>

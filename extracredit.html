@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Web Component 2</title>
+        <style>
+            button {
+                background-color: #4CAF50;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <!-- React version -->
+            <div id="react-button-count"></div>
+            <br>
+            <br>
+            <!-- Vue version -->
+            <div id="app">
+                <button @click="count++">
+                Times Clicked (Vue): {{ count }}
+                </button>
+            </div>
+            
+        </main>
+        <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+        <script src="ExtraCredit.js" type="module"></script>
+    </body>
+</html>
